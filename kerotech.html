@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KaroPitch</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background: radial-gradient(circle at top,#0f172a,#020617);
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 80px;
+background:rgba(2,6,23,0.7);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:26px;
+font-weight:700;
+color:#38bdf8;
+}
+
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#38bdf8;
+}
+
+.nav-btn{
+background:linear-gradient(45deg,#6366f1,#38bdf8);
+border:none;
+padding:10px 25px;
+border-radius:30px;
+color:white;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:100px 80px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:600px;
+animation:fadeUp 1s ease;
+}
+
+.hero-text h1{
+font-size:60px;
+line-height:1.2;
+margin-bottom:20px;
+}
+
+.hero-text span{
+color:#38bdf8;
+}
+
+.hero-text p{
+color:#cbd5f5;
+margin-bottom:30px;
+}
+
+.primary-btn{
+background:linear-gradient(45deg,#6366f1,#38bdf8);
+border:none;
+padding:14px 30px;
+border-radius:30px;
+color:white;
+cursor:pointer;
+margin-right:15px;
+transition:0.3s;
+}
+
+.primary-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #38bdf8;
+}
+
+.secondary-btn{
+background:transparent;
+border:1px solid white;
+padding:14px 30px;
+border-radius:30px;
+color:white;
+cursor:pointer;
+}
+
+.hero img{
+width:420px;
+border-radius:15px;
+animation:float 4s ease-in-out infinite;
+}
+
+/* LOGO SLIDER */
+
+.logo-slider{
+overflow:hidden;
+padding:40px;
+background:#020617;
+}
+
+.logos{
+display:flex;
+gap:60px;
+animation:slide 15s linear infinite;
+}
+
+.logos img{
+height:40px;
+opacity:0.7;
+}
+
+/* SECTION */
+
+.section{
+padding:90px 80px;
+text-align:center;
+}
+
+.section h2{
+font-size:40px;
+margin-bottom:50px;
+}
+
+/* CARDS */
+
+.cards{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:30px;
+border-radius:15px;
+width:230px;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(56,189,248,0.6);
+}
+
+/* STARTUPS */
+
+.startups{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.startup{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:15px;
+width:250px;
+border:1px solid rgba(255,255,255,0.1);
+transition:0.4s;
+}
+
+.startup:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px rgba(99,102,241,0.6);
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+padding:100px 20px;
+background:#020617;
+}
+
+.cta h2{
+font-size:42px;
+margin-bottom:30px;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+background:#01030a;
+color:#94a3b8;
+}
+
+/* ANIMATIONS */
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0px);}
+}
+
+@keyframes slide{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+
+@keyframes fadeUp{
+0%{opacity:0; transform:translateY(40px);}
+100%{opacity:1; transform:translateY(0);}
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero img{
+margin-top:40px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">KaroPitch</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#how">How it Works</a></li>
+<li><a href="#startups">Startups</a></li>
+</ul>
+
+<button class="nav-btn">Apply Now</button>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>Pitch Your Startup <br> <span>to Top Investors</span></h1>
+
+<p>
+India's fastest growing startup-investor platform.
+Get funding and scale your idea globally.
+</p>
+
+<button class="primary-btn">Apply to Pitch</button>
+<button class="secondary-btn">Explore Startups</button>
+
+</div>
+
+<img src="https://images.unsplash.com/photo-1557804506-669a67965ba0">
+
+</section>
+
+
+<!-- LOGO SLIDER -->
+
+<div class="logo-slider">
+
+<div class="logos">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg">
+
+</div>
+
+</div>
+
+
+<!-- HOW IT WORKS -->
+
+<section class="section" id="how">
+
+<h2>How It Works</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Apply</h3>
+<p>Submit your startup application</p>
+</div>
+
+<div class="card">
+<h3>Get Shortlisted</h3>
+<p>Our team reviews your startup</p>
+</div>
+
+<div class="card">
+<h3>Pitch</h3>
+<p>Present your startup to investors</p>
+</div>
+
+<div class="card">
+<h3>Get Funding</h3>
+<p>Secure funding and grow</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STARTUPS -->
+
+<section class="section" id="startups">
+
+<h2>Featured Startups</h2>
+
+<div class="startups">
+
+<div class="startup">
+<h3>EcoCart</h3>
+<p>Sustainable eCommerce</p>
+</div>
+
+<div class="startup">
+<h3>FarmLink</h3>
+<p>Agri-tech platform</p>
+</div>
+
+<div class="startup">
+<h3>FinMate</h3>
+<p>AI finance assistant</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Ready to Pitch Your Startup?</h2>
+
+<button class="primary-btn">Apply Now</button>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 KaroPitch • Startup Investor Platform</p>
+
+</footer>
+
+</body>
+
+</html>

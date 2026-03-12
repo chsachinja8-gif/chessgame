@@ -11,7 +11,9 @@ const flipBtn = document.getElementById('flipBtn');
 const aiBtn = document.getElementById('aiBtn');
 const promotionModal = document.getElementById('promotionModal');
 const promotionOptions = document.getElementById('promotionOptions');
-
+const winModal = document.getElementById('winModal');
+const winMessage = document.getElementById('winMessage');
+const playAgainBtn = document.getElementById('playAgainBtn');
 const PIECES = {
   w: { k: '♔', q: '♕', r: '♖', b: '♗', n: '♘', p: '♙' },
   b: { k: '♚', q: '♛', r: '♜', b: '♝', n: '♞', p: '♟' },
@@ -257,12 +259,22 @@ function updateGameStatus() {
   const color = game.currentPlayer;
   const hasMove = hasAnyLegalMove(game.board, color, game.enPassant);
   const inCheck = isKingInCheck(game.board, color);
+  
   if (!hasMove && inCheck) {
     game.status = 'checkmate';
     playSound('gameover');
+    
+    // 🏆 Show winner popup
+    const winner = game.currentPlayer === 'w' ? 'Black' : 'White';
+    showWinPopup(`Checkmate! ${winner} Wins! 🎉`);
+    
   } else if (!hasMove) {
     game.status = 'stalemate';
     playSound('gameover');
+    
+    // 🤝 Show draw popup
+    showWinPopup('Stalemate! It\'s a Draw! 🤝');
+    
   } else if (inCheck) {
     game.status = 'check';
     playSound('check');
@@ -270,7 +282,6 @@ function updateGameStatus() {
     game.status = 'playing';
   }
 }
-
 function hasAnyLegalMove(board, color, enPassant) {
   for (let y = 0; y < 8; y++) for (let x = 0; x < 8; x++) {
     if (board[y][x]?.color === color && getLegalMoves(board, x, y, color, enPassant).length) return true;
@@ -287,6 +298,17 @@ function getLegalMoves(board, x, y, color, enPassant) {
     return !isKingInCheck(test, color);
   });
 }
+// ✨ Popup show karne ke liye function
+function showWinPopup(message) {
+  winMessage.textContent = message;
+  winModal.classList.remove('hidden');
+}
+
+// Play Again button click
+playAgainBtn.addEventListener('click', () => {
+  winModal.classList.add('hidden');
+  initGame();
+});
 
 function getPseudoMoves(board, x, y, piece, enPassant, includeCastling = true) {
   const moves = [];

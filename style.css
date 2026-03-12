@@ -152,3 +152,63 @@ button:hover { transform: translateY(-1px); box-shadow: 0 8px 14px rgba(0,0,0,.2
   .app { grid-template-columns: 1fr; }
   .history-panel { max-height: none; }
 }
+/* Win/Checkmate Popup */
+#winModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#winModal.hidden {
+  display: none !important;
+}
+
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: popupAppear 0.3s ease-in;
+}
+
+@keyframes popupAppear {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#winMessage {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+#playAgainBtn {
+  padding: 12px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  background: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+#playAgainBtn:hover {
+  background: #229954;
+  transform: scale(1.05);
+}
